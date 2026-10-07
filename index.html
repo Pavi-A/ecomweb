@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GRAINA — Ancient Grains. Modern Ritual.</title>
+    <meta name="description" content="Premium ragi malt, wheat malt and handcrafted masala blends.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar" id="navbar">
+
+<a href="#"
+   aria-label="GRAINA Home"
+   style="
+       display:flex;
+       align-items:center;
+       justify-content:center;
+       width:70px;
+       height:70px;
+       flex-shrink:0;
+       text-decoration:none;
+   ">
+
+    <img
+        src="assets/logo.png"
+        alt="GRAINA"
+        style="
+            width:62px;
+            height:62px;
+            object-fit:contain;
+            object-position:center;
+            display:block;
+            mix-blend-mode:screen;
+            filter:drop-shadow(0 2px 8px rgba(0,0,0,0.35));
+        "
+    >
+
+</a>
+
+    <nav class="nav-links">
+        <a href="#shop">Shop</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="#ingredients">Ingredients</a>
+        <a href="#recipes">Recipes</a>
+    </nav>
+
+    <div class="nav-actions">
+
+        <button class="search-btn" aria-label="Search">
+            <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="M16 16L21 21"></path>
+            </svg>
+        </button>
+
+        <button class="cart-btn" id="cartBtn">
+            <svg viewBox="0 0 24 24">
+                <path d="M3 4H5L7.5 16H18L21 7H6"></path>
+                <circle cx="9" cy="20" r="1"></circle>
+                <circle cx="17" cy="20" r="1"></circle>
+            </svg>
+
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <button class="menu-btn" id="menuBtn">
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= MOBILE MENU ================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <a href="#shop">Shop</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="#ingredients">Ingredients</a>
+    <a href="#recipes">Recipes</a>
+
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+   <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto">
+    
+    <source src="hero.mp4" type="video/mp4">
+
+</video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="grain-particles"></div>
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            ROOTED IN TRADITION
+            <span></span>
+            MADE FOR TODAY
+        </p>
+
+        <h1>
+            Ancient Grains.
+            <em>Modern Ritual.</em>
+        </h1>
+
+        <p class="hero-description">
+            Honest ingredients, slow-crafted blends and timeless flavours
+            made for your everyday wellness.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#shop" class="btn btn-primary">
+                Explore Collection
+                <span>↗</span>
+            </a>
+
+            <a href="our-story.html" class="btn btn-outline">
+                Discover Our Story
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-bottom">
+
+        <div class="hero-scroll">
+            <span class="scroll-line"></span>
+            Scroll to explore
+        </div>
+
+        <div class="hero-tag">
+            <span>100%</span>
+            GRAIN GOODNESS
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MARQUEE ================= -->
+
+<section class="marquee">
+
+    <div class="marquee-track">
+
+        <span>RAGI MALT</span>
+        <i>✦</i>
+
+        <span>WHEAT MALT</span>
+        <i>✦</i>
+
+        <span>HANDCRAFTED MASALA</span>
+        <i>✦</i>
+
+        <span>ANCIENT GRAINS</span>
+        <i>✦</i>
+
+        <span>RAGI MALT</span>
+        <i>✦</i>
+
+        <span>WHEAT MALT</span>
+        <i>✦</i>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="intro section-padding">
+
+    <div class="intro-label">
+        <span>01</span>
+        THE GRAINA WAY
+    </div>
+
+    <div class="intro-content">
+
+        <h2>
+            Good food doesn't need
+            <span>to be complicated.</span>
+        </h2>
+
+        <p>
+            We bring India's ancient grains into modern kitchens —
+            keeping every ingredient simple, honest and full of flavour.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STORY ================= -->
+
+<section class="story section-padding" id="story">
+
+    <div class="story-image">
+
+        <div class="image-card">
+            <img src="assets/ragi-malt.jpg" alt="Ragi grains">
+        </div>
+
+        <div class="floating-card">
+            <span>01</span>
+            <strong>From grain</strong>
+            <small>to goodness</small>
+        </div>
+
+    </div>
+
+
+    <div class="story-content">
+
+        <span class="section-number">01 — OUR STORY</span>
+
+        <h2>
+            From the soil,
+            <br>
+            <i>to your table.</i>
+        </h2>
+
+        <p>
+            Our blends begin with carefully selected grains and spices.
+            We keep the process simple so the ingredients can speak for themselves.
+        </p>
+
+        <a href="our-story.html" class="text-link">
+            Read our story
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SHOP ================= -->
+
+<section class="shop section-padding" id="shop">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-number">02 — THE COLLECTION</span>
+
+            <h2>
+                Everyday
+                <i>goodness.</i>
+            </h2>
+        </div>
+
+        <a href="#" class="view-all">
+            View all products →
+        </a>
+
+    </div>
+
+
+    <div class="products-grid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <article class="product-card">
+
+            <div class="product-image">
+
+                <span class="product-badge">BESTSELLER</span>
+
+                <img src="assets/ragi-malt.jpg" alt="Ragi Malt">
+
+                <button class="quick-add"
+                        data-name="Classic Ragi Malt"
+                        data-price="349">
+
+                    + Add
+
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div>
+                    <h3>Classic Ragi Malt</h3>
+                    <p>Roasted ragi • Naturally wholesome</p>
+                </div>
+
+                <strong>₹349</strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 2 -->
+
+        <article class="product-card">
+
+            <div class="product-image">
+
+                <span class="product-badge new">NEW</span>
+
+                <img src="assets/wheat-malt.jpg" alt="Wheat Malt">
+
+                <button class="quick-add"
+                        data-name="Golden Wheat Malt"
+                        data-price="379">
+
+                    + Add
+
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div>
+                    <h3>Golden Wheat Malt</h3>
+                    <p>Slow roasted • Rich & creamy</p>
+                </div>
+
+                <strong>₹379</strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 3 -->
+
+        <article class="product-card">
+
+            <div class="product-image">
+
+                <span class="product-badge">SIGNATURE</span>
+
+                <img src="assets/masala.jpg" alt="Masala Blend">
+
+                <button class="quick-add"
+                        data-name="House Masala"
+                        data-price="299">
+
+                    + Add
+
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div>
+                    <h3>House Masala</h3>
+                    <p>Bold spices • Small-batch blended</p>
+                </div>
+
+                <strong>₹299</strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 4 -->
+
+        <article class="product-card">
+
+            <div class="product-image">
+
+                <img src="assets/health-mix.jpg" alt="Daily Health Mix">
+
+                <button class="quick-add"
+                        data-name="Daily Health Mix"
+                        data-price="429">
+
+                    + Add
+
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div>
+                    <h3>Daily Health Mix</h3>
+                    <p>Multi-grain • Everyday nourishment</p>
+                </div>
+
+                <strong>₹429</strong>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INGREDIENTS ================= -->
+
+<section class="ingredients" id="ingredients">
+
+    <div class="ingredient-header">
+
+        <span class="section-number">03 — WHAT'S INSIDE</span>
+
+        <h2>
+            Nothing hidden.
+            <br>
+            <i>Just good ingredients.</i>
+        </h2>
+
+    </div>
+
+
+    <div class="ingredient-orbit">
+
+        <div class="orbit-center"
+     style="
+        width:200px;
+        height:200px;
+        border-radius:50%;
+        overflow:hidden;
+        position:relative;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:#24160d;
+        border:1px solid rgba(218,180,92,0.35);
+        box-shadow:
+            0 0 35px rgba(218,180,92,0.16),
+            inset 0 0 30px rgba(0,0,0,0.35);
+     ">
+
+    <img
+        src="assets/Pure Goodness Grain Emblem.png"
+        alt="Pure Goodness Grain Emblem"
+        style="
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            object-position:center;
+            display:block;
+            transform:scale(1.02);
+            filter:
+                saturate(1.08)
+                contrast(1.04)
+                brightness(0.92);
+        "
+    >
+
+    <div
+        style="
+            position:absolute;
+            inset:0;
+            border-radius:50%;
+            pointer-events:none;
+            background:
+                radial-gradient(
+                    circle at center,
+                    transparent 48%,
+                    rgba(20,10,5,0.22) 100%
+                );
+        ">
+    </div>
+
+</div>
+
+        <div class="ingredient ingredient-1">
+            <strong>01</strong>
+            <span>Ragi</span>
+        </div>
+
+        <div class="ingredient ingredient-2">
+            <strong>02</strong>
+            <span>Wheat</span>
+        </div>
+
+        <div class="ingredient ingredient-3">
+            <strong>03</strong>
+            <span>Cardamom</span>
+        </div>
+
+        <div class="ingredient ingredient-4">
+            <strong>04</strong>
+            <span>Cinnamon</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURE ================= -->
+
+<section class="feature">
+
+    <div class="feature-video">
+
+        <video autoplay muted loop playsinline>
+            <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+    <div class="feature-content">
+
+        <span>THE MORNING RITUAL</span>
+
+        <h2>
+            Start slow.
+            <br>
+            <i>Feel good.</i>
+        </h2>
+
+        <p>
+            A warm cup. A quiet moment.
+            Your simplest daily ritual starts here.
+        </p>
+
+        <a href="#shop" class="btn btn-light">
+            Shop Morning Blends →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RECIPES ================= -->
+
+<section class="recipes section-padding" id="recipes">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-number">04 — FROM OUR KITCHEN</span>
+
+            <h2>
+                Make it
+                <i>your way.</i>
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="recipe-grid">
+
+        <article class="recipe-card">
+
+            <div class="recipe-image">
+                <img src="assets/ragi-malt.jpg" alt="">
+            </div>
+
+            <div class="recipe-content">
+                <span>05 MIN</span>
+                <h3>Classic Ragi Malt</h3>
+                <a href="#">View recipe →</a>
+            </div>
+
+        </article>
+
+
+        <article class="recipe-card">
+
+            <div class="recipe-image">
+                <img src="assets/wheat-malt.jpg" alt="">
+            </div>
+
+            <div class="recipe-content">
+                <span>08 MIN</span>
+                <h3>Golden Morning Cup</h3>
+                <a href="#">View recipe →</a>
+            </div>
+
+        </article>
+
+
+        <article class="recipe-card">
+
+            <div class="recipe-image">
+                <img src="assets/masala.jpg" alt="">
+            </div>
+
+            <div class="recipe-content">
+                <span>10 MIN</span>
+                <h3>Signature Masala Chai</h3>
+                <a href="#">View recipe →</a>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+    <div>
+
+        <span>STAY IN THE LOOP</span>
+
+        <h2>
+            Good things,
+            <br>
+            <i>in your inbox.</i>
+        </h2>
+
+    </div>
+
+    <form id="newsletterForm">
+
+        <input
+            type="email"
+            placeholder="Your email address"
+            required
+        >
+
+        <button type="submit">
+            →
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+
+           <a href="#" class="logo" aria-label="GRAINA Home">
+    <img
+        src="assets/logo.png"
+        alt="GRAINA"
+        style="
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            display: block;
+        "
+    >
+</a>
+
+            <p>
+                Ancient grains.<br>
+                Modern rituals.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <div>
+                <h4>Explore</h4>
+                <a href="#shop">Shop</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="#ingredients">Ingredients</a>
+                <a href="#recipes">Recipes</a>
+            </div>
+
+            <div>
+                <h4>Help</h4>
+                <a href="#">Contact</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">FAQ</a>
+            </div>
+
+            <div>
+                <h4>Follow</h4>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+                <a href="#">Facebook</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>© 2026 GRAINA</span>
+
+        <span>Made with intention.</span>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= CART PANEL ================= -->
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-panel" id="cartPanel">
+
+    <div class="cart-header">
+
+        <h3>Your Cart</h3>
+
+        <button id="closeCart">×</button>
+
+    </div>
+
+    <div class="cart-items" id="cartItems">
+
+        <div class="empty-cart">
+            <span>🛒</span>
+            <p>Your basket is waiting.</p>
+        </div>
+
+    </div>
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">₹0</strong>
+        </div>
+
+        <button
+    class="checkout-btn"
+    id="checkoutBtn"
+    type="button"
+    onclick="goToCheckout()">
+    Proceed to Checkout →
+</button>
+
+    </div>
+
+</aside>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

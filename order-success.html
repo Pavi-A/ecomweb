@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Order Confirmed — GRAINA</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <div class="success-page">
+
+        <!-- Background decoration -->
+
+        <div class="grain grain-one">✦</div>
+        <div class="grain grain-two">✦</div>
+
+
+        <main class="success-card">
+
+            <!-- Logo -->
+
+            <div class="brand">
+
+                <img
+                    src="assets/logo.png"
+                    alt="GRAINA">
+
+            </div>
+
+
+            <!-- Success Icon -->
+
+            <div class="success-icon">
+
+                <span>✓</span>
+
+            </div>
+
+
+            <!-- Heading -->
+
+            <p class="eyebrow">
+                THANK YOU FOR CHOOSING GRAINA
+            </p>
+
+            <h1>
+                Order<br>
+                <em>Confirmed.</em>
+            </h1>
+
+            <p class="success-message">
+                Your wholesome goodness is being prepared
+                with care and will soon be on its way to you.
+            </p>
+
+
+            <!-- Order Number -->
+
+            <div class="order-number">
+
+                <span>ORDER NUMBER</span>
+
+                <strong id="orderNumber">
+                    #GRN-000000
+                </strong>
+
+            </div>
+
+
+            <!-- Order Details -->
+
+            <section class="order-box">
+
+                <div class="section-title">
+                    YOUR ORDER
+                </div>
+
+                <div id="orderItems"></div>
+
+
+                <div class="order-total">
+
+                    <span>Total</span>
+
+                    <strong id="orderTotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- Delivery -->
+
+            <section class="delivery-box">
+
+                <div>
+
+                    <span class="label">
+                        DELIVERING TO
+                    </span>
+
+                    <strong id="customerName">
+                        Customer
+                    </strong>
+
+                    <p id="customerAddress">
+                        Address
+                    </p>
+
+                </div>
+
+
+                <div class="delivery-time">
+
+                    <span class="label">
+                        ESTIMATED DELIVERY
+                    </span>
+
+                    <strong>
+                        3–5 Business Days
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- Button -->
+
+            <a
+                href="index.html#shop"
+                class="shop-button">
+
+                CONTINUE SHOPPING
+
+                <span>→</span>
+
+            </a>
+
+
+            <p class="footer-text">
+                Ancient Grains. Modern Ritual.
+            </p>
+
+        </main>
+
+    </div>
+
+
+
+<script>
+
+/* ===============================
+   GET ORDER
+================================ */
+
+const order =
+    JSON.parse(
+        localStorage.getItem("grainaOrder")
+    );
+
+
+/* ===============================
+   GENERATE ORDER NUMBER
+================================ */
+
+function generateOrderNumber() {
+
+    const date =
+        new Date();
+
+    const year =
+        date.getFullYear();
+
+    const month =
+        String(date.getMonth() + 1)
+        .padStart(2, "0");
+
+    const day =
+        String(date.getDate())
+        .padStart(2, "0");
+
+    const random =
+        Math.floor(
+            1000 + Math.random() * 9000
+        );
+
+    return `#GRN-${year}${month}${day}-${random}`;
+
+}
+
+
+/* ===============================
+   DISPLAY ORDER
+================================ */
+
+if (order) {
+
+
+    /* Customer */
+
+    document.getElementById(
+        "customerName"
+    ).textContent =
+        order.customer.name;
+
+
+    document.getElementById(
+        "customerAddress"
+    ).textContent =
+        order.customer.address;
+
+
+    /* Order number */
+
+    let orderNumber =
+        localStorage.getItem(
+            "grainaOrderNumber"
+        );
+
+
+    if (!orderNumber) {
+
+        orderNumber =
+            generateOrderNumber();
+
+        localStorage.setItem(
+            "grainaOrderNumber",
+            orderNumber
+        );
+
+    }
+
+
+    document.getElementById(
+        "orderNumber"
+    ).textContent =
+        orderNumber;
+
+
+    /* Products */
+
+    const orderItems =
+        document.getElementById(
+            "orderItems"
+        );
+
+
+    order.items.forEach(item => {
+
+        const subtotal =
+            item.price * item.quantity;
+
+
+        orderItems.innerHTML += `
+
+            <div class="order-item">
+
+                <div>
+
+                    <strong>
+                        ${item.name}
+                    </strong>
+
+                    <span>
+                        ₹${item.price.toLocaleString("en-IN")}
+                        × ${item.quantity}
+                    </span>
+
+                </div>
+
+                <strong>
+                    ₹${subtotal.toLocaleString("en-IN")}
+                </strong>
+
+            </div>
+
+        `;
+
+    });
+
+
+    /* Total */
+
+    document.getElementById(
+        "orderTotal"
+    ).textContent =
+        "₹" +
+        order.total.toLocaleString("en-IN");
+
+
+
+} else {
+
+    document.getElementById(
+        "orderNumber"
+    ).textContent =
+        "#GRN-NO-ORDER";
+
+}
+
+
+/* ===============================
+   CLEAN OLD CART
+================================ */
+
+localStorage.removeItem(
+    "grainaCart"
+);
+
+</script>
+
+
+
+<style>
+
+/* =================================
+   RESET
+================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    color: #f7efe1;
+
+    background: #24140b;
+}
+
+
+/* =================================
+   PAGE
+================================= */
+
+.success-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 60px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(181, 130, 48, .20),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #170b06,
+            #3a1f12 50%,
+            #170b06
+        );
+}
+
+
+/* =================================
+   DECORATIVE GRAINS
+================================= */
+
+.grain {
+
+    position: fixed;
+
+    color:
+        rgba(218, 176, 83, .18);
+
+    font-size: 180px;
+
+    pointer-events: none;
+
+}
+
+
+.grain-one {
+
+    top: -80px;
+
+    left: -50px;
+
+    transform: rotate(25deg);
+
+}
+
+
+.grain-two {
+
+    right: -70px;
+
+    bottom: -80px;
+
+    transform: rotate(-30deg);
+
+}
+
+
+/* =================================
+   CARD
+================================= */
+
+.success-card {
+
+    width: 100%;
+
+    max-width: 760px;
+
+    padding: 55px 70px;
+
+    text-align: center;
+
+    position: relative;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(74, 40, 22, .96),
+            rgba(37, 20, 11, .98)
+        );
+
+    border:
+
+        1px solid
+        rgba(222, 180, 87, .30);
+
+    box-shadow:
+
+        0 35px 100px
+        rgba(0,0,0,.45);
+
+}
+
+
+/* =================================
+   LOGO
+================================= */
+
+.brand {
+
+    margin-bottom: 25px;
+
+}
+
+
+.brand img {
+
+    width: 62px;
+
+    height: 62px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin: auto;
+
+    mix-blend-mode: screen;
+
+}
+
+
+/* =================================
+   SUCCESS ICON
+================================= */
+
+.success-icon {
+
+    width: 76px;
+
+    height: 76px;
+
+    margin: 0 auto 28px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border:
+        1px solid
+        rgba(225, 182, 86, .7);
+
+    background:
+        rgba(225, 182, 86, .08);
+
+    box-shadow:
+        0 0 35px
+        rgba(225, 182, 86, .15);
+
+}
+
+
+.success-icon span {
+
+    font-size: 30px;
+
+    color: #e4b85f;
+
+}
+
+
+/* =================================
+   TEXT
+================================= */
+
+.eyebrow {
+
+    margin: 0 0 15px;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #d8b36a;
+
+}
+
+
+h1 {
+
+    margin: 0;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: clamp(
+        55px,
+        8vw,
+        88px
+    );
+
+    line-height: .9;
+
+    font-weight: 500;
+
+}
+
+
+h1 em {
+
+    color: #dcae51;
+
+}
+
+
+.success-message {
+
+    max-width: 520px;
+
+    margin:
+        28px auto 35px;
+
+    line-height: 1.8;
+
+    color:
+        rgba(255,255,255,.68);
+
+    font-size: 15px;
+
+}
+
+
+/* =================================
+   ORDER NUMBER
+================================= */
+
+.order-number {
+
+    display: inline-flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    padding:
+        14px 25px;
+
+    margin-bottom: 35px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+}
+
+
+.order-number span,
+.label {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,.48);
+
+}
+
+
+.order-number strong {
+
+    color: #e4b85f;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =================================
+   ORDER BOX
+================================= */
+
+.order-box {
+
+    text-align: left;
+
+    padding: 28px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+}
+
+
+.section-title {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #d8b36a;
+
+    margin-bottom: 15px;
+
+}
+
+
+.order-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 17px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+}
+
+
+.order-item div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.order-item strong {
+
+    font-size: 14px;
+
+}
+
+
+.order-item span {
+
+    font-size: 12px;
+
+    color:
+        rgba(255,255,255,.45);
+
+}
+
+
+.order-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-top: 22px;
+
+    font-size: 16px;
+
+}
+
+
+.order-total strong {
+
+    color: #e5b85d;
+
+    font-size: 20px;
+
+}
+
+
+/* =================================
+   DELIVERY
+================================= */
+
+.delivery-box {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+
+    text-align: left;
+
+    padding: 28px 0;
+
+}
+
+
+.delivery-box strong {
+
+    display: block;
+
+    margin-top: 8px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 18px;
+
+}
+
+
+.delivery-box p {
+
+    margin: 6px 0 0;
+
+    color:
+        rgba(255,255,255,.55);
+
+    font-size: 13px;
+
+}
+
+
+.delivery-time {
+
+    padding-left: 25px;
+
+    border-left:
+        1px solid
+        rgba(255,255,255,.12);
+
+}
+
+
+/* =================================
+   BUTTON
+================================= */
+
+.shop-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    min-width: 260px;
+
+    height: 55px;
+
+    background: #d9ad56;
+
+    color: #24140b;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+
+}
+
+
+.shop-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    background: #ecc36d;
+
+}
+
+
+.shop-button span {
+
+    font-size: 18px;
+
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+.footer-text {
+
+    margin:
+        35px 0 0;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-style: italic;
+
+    color:
+        rgba(255,255,255,.35);
+
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 650px) {
+
+    .success-page {
+
+        padding: 20px 15px;
+
+    }
+
+
+    .success-card {
+
+        padding:
+            40px 22px;
+
+    }
+
+
+    h1 {
+
+        font-size: 58px;
+
+    }
+
+
+    .delivery-box {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .delivery-time {
+
+        padding-left: 0;
+
+        padding-top: 20px;
+
+        border-left: 0;
+
+        border-top:
+            1px solid
+            rgba(255,255,255,.12);
+
+    }
+
+
+    .order-box {
+
+        padding: 20px;
+
+    }
+
+}
+
+</style>
+
+</body>
+
+</html>
